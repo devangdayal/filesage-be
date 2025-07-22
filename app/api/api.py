@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.endpoints import endpoints
+from app.endpoints import scanner_endpoints
 
 
 router = APIRouter()
-router.include_router(endpoints.router, prefix="/v1", tags=["v1"])
+router.include_router(scanner_endpoints.router, prefix="/v1", tags=["filesage"])
