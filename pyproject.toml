@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "filesage"
+version = "0.1.0"
+description = "AI Chatbot for your FileSystem"
+authors = ["Devang Dayal"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+fastapi = "^0.110"
+uvicorn = "^0.29"
+sentence-transformers = "^2.6"
+faiss-cpu = "^1.7"
+watchdog = "^4.0"
+python-dotenv = "^1.0"
+PyMuPDF = "^1.24"
+python-docx = "^1.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+
+[tool.poetry.scripts]
+start = "app.main:start"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

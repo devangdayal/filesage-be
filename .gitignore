@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Poetry lock file (optional to ignore if using reproducible builds)
+# poetry.lock
+
+# VSCode settings
+.vscode/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Python dot-env
+.env
+*.env
+
+# Logs and local artifacts
+*.log
+*.sqlite3
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# FastAPI cache
+instance/
+*.db
+
+# Jupyter Notebooks (optional if not using)
+.ipynb_checkpoints/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# FAISS index (if saving to disk)
+*.faiss
+*.index
+
+# Test artifacts
+__snapshots__/
+coverage.xml
