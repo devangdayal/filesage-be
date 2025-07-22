@@ -1,2 +1,2 @@
-# filesage
-Chat with your local data
+# FileSage
+Local Personalised AI Chatbot for your FileSystem
