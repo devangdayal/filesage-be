@@ -5,7 +5,7 @@ import logging
 from typing import Dict, List
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import pdfplumber
-from docx import Document  # for .docx files
+from docx import Document  
 
 SUPPORTED_EXTENSIONS = [".pdf", ".md", ".txt", ".docx", ".csv", ".xlsx"]
 
@@ -49,7 +49,7 @@ def fetch_file_metadata(file_path: str) -> Dict:
                     content_preview = f.read(1000).strip()
                     is_readable = bool(content_preview)
             except Exception as e:
-                logging.error(f"[ERROR] Text read failed: {file_path} — {e}")
+                logging.error("[ERROR] Text read failed: %s: %s",{file_path},{e})
 
         elif extension == ".docx":
             try:
@@ -58,7 +58,7 @@ def fetch_file_metadata(file_path: str) -> Dict:
                 content_preview = text.strip()[:500]
                 is_readable = bool(content_preview)
             except Exception as e:
-                logging.error(f"[ERROR] DOCX read failed: {file_path} — {e}")
+                logging.error("[ERROR] DOCX read failed: %s: %s",{file_path},{e})
 
         return {
             "name": name,
@@ -73,10 +73,10 @@ def fetch_file_metadata(file_path: str) -> Dict:
         }
 
     except FileNotFoundError as e:
-        logging.error(f"[ERROR] Failed to scan {file_path}: {e}")
+        logging.error("[ERROR] Failed to scan %s: %s",{file_path},{e})
         return {}
     finally:
-        logging.info(f"[TIMER] {extension} took {round(time.time() - start, 2)}s")
+        logging.info("[TIMER] %s took %s s",{extension},{round(time.time() - start, 2)})
 
 
 def scan_directory(root_dir: str, extensions: List[str] = None, max_workers: int = 8) -> List[Dict]:
