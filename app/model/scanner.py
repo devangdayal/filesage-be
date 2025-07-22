@@ -1,2 +1,4 @@
-class ScannerRequest:
-    file_path:str;
+from pydantic import BaseModel
+class ScannerRequest(BaseModel):
+    """Request for Dir Scanning"""
+    path: str
