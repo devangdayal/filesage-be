@@ -5,9 +5,9 @@ import logging
 from typing import Dict, List
 from concurrent.futures import ProcessPoolExecutor, as_completed
 import pdfplumber
-from docx import Document  
+from docx import Document
+from app.model.constant import SCANNER_SUPPORTED_EXTENSIONS  
 
-SUPPORTED_EXTENSIONS = [".pdf", ".md", ".txt", ".docx", ".csv", ".xlsx"]
 
 
 def fetch_file_metadata(file_path: str) -> Dict:
@@ -91,7 +91,7 @@ def scan_directory(root_dir: str, extensions: List[str] = None, max_workers: int
     Returns:
         List[Dict]: List of file metadata.
     """
-    extensions = extensions or SUPPORTED_EXTENSIONS
+    extensions = extensions or SCANNER_SUPPORTED_EXTENSIONS
     file_paths = []
     results = []
 
